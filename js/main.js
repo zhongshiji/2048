@@ -24,7 +24,6 @@ function newgame() {
     //在随机两个格子生成数字
     generateOneNumber();
     generateOneNumber();
-    // updateScore();
 }
 
 function init() {
@@ -49,6 +48,7 @@ function init() {
     updateBoardView();
 
     score = 0;
+    updateScore(score);
 }
 
 // 更新棋盘上显示的方块

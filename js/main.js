@@ -176,13 +176,17 @@ function moveLeft() {
         return false;
     }
     // moveLeft
+    // 遍历右边12个格子
     for (let i = 0; i < 4; i++) {
         for (let j = 1; j < 4; j++) {
             if (board[i][j] != 0) {
+                // 有数字则遍历左边
                 for (let k = 0; k < j; k++) {
+                    // 看落点是否为空且路上有无障碍
                     if (board[i][k] == 0 && noBlockHorizontal(i ,k, j, board)) {
                         // move
                         showMoveAnimation(i, j, i, k);
+                        // 更新
                         board[i][k] = board[i][j];
                         board[i][j] = 0;
                         continue;
@@ -204,6 +208,7 @@ function moveLeft() {
             }
         }
     }
+    // 遍历完后更新格子显示状态，慢一点才能显示动画
     setTimeout("updateBoardView()", 200);
     return true;
 }
